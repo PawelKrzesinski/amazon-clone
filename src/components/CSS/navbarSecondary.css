@@ -1,0 +1,22 @@
+
+
+@media only screen and (min-width: 300px){
+	.navbar-secondary{
+		display: none;
+	}
+	.navbar-secondary-bestsellers{
+
+	}
+	.navbar-secondary-electronics{
+
+	}
+	.navbar-secondary-garden{
+
+	}
+	.navbar-secondary-toys{
+
+	}
+	.navbar-secondary-clothes{
+
+	}
+}

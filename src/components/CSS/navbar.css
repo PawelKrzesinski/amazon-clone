@@ -1,0 +1,56 @@
+
+
+
+
+@media only screen and (min-width: 300px){
+	.navbar{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+		background-color: #0F1111;
+		color: white;
+	}
+	.navbar button{
+		color: white;
+	}
+	.navbar-home{
+		background-color: #0F1111;
+		border: none;
+		padding: 10px 15px;
+		font-weight: 700;
+	}
+	.search-box-container{
+		display: flex;
+		flex-direction: row;
+	}
+	.navbar input[type="text"]{
+		width: 40%;
+	}
+	.navbar-search{
+		width: 30px;
+		height: 30px;
+	}
+	.fa-search{
+		font-size: 25px;
+	}
+	.navbar-signIn{
+		display: none;
+	}
+	.navbar-returnsAndOrders{
+		display: none;
+	}
+	.navbar-prime{
+		display: none;
+	}
+	.navbar-cart{
+		width: 30px;
+		height: 30px;
+	}
+	.fa-bars .fa-shopping-basket{
+		font-size: 30px;
+		
+	}
+}
+
+
