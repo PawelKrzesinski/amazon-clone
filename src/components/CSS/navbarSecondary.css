@@ -1,22 +1,90 @@
+@keyframes wiggle{
+	0%{
+		transform:translateY(3%)
+	}
+	25%{
+		transform:translateY(-3%)
+	}
+	50%{
+		transform:translateY(3%)
+	}
+	75%{
+		transform:translateY(-3%)
+	}
+	100%{
+		transform:translateY(0%)
+	}
+}
 
 
 @media only screen and (min-width: 300px){
 	.navbar-secondary{
-		display: none;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		background-color: rgb(240, 240, 240);
+		width: 40%;
+		height: 100vh;
+		position: fixed;
+		top: 40px;
+		right: 0;
+		transition: all 0.3s ease-in-out;
 	}
-	.navbar-secondary-bestsellers{
+	.navbar-secondary button{
+		border: none;
+		background-color: rgb(240, 240, 240);
+		margin: 2px 0;
+		height: 30px;
+		width: 100%;
+		cursor: pointer;
+		color: dimgray;
+	}
+	.navbar-secondary button:hover{
+		color: black;
+		background-color: gainsboro;
+	}
+	.navbar-secondary button:first-of-type{
+		margin-top: 50px;
+	}
+	.navbar-secondary button:focus{
+		background-color: lightgray;
+		outline: none;
+		color: black;
+	}
+	.navbar-secondary p{
+		font-size: 30px;
+		position: absolute;
+		left: -40px;
+		width: 40px;
+		height: 40px;
+		text-align: center;
+		cursor: pointer;
+	}
+	.navbar-secondary p:hover{
+		animation: wiggle 0.3s ease-in-out;
+	}
+	.fa-arrow-left{
+		position: absolute;
+		left: 0;
+		color: gray;
+		transform: translate(100%, 10%) rotateZ(180deg);
+	}
+	.navbar-secondary button:hover > .fa-arrow-left{
+		color: black;
+		transform:translate(100%, 10%) rotateZ(0deg);
+		transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	}
+	.navbar-secondary button:focus > .fa-arrow-left{
+		color: black;
+		transform: translate(100%, 10%) rotateZ(0deg);
+	}
+	.navbar-secondary-part2{
+		background-color: red;
+		width: 40%;
+		height: 100vh;
+		position: fixed;
+		top: 40px;
+		right: 0;
+	}
 
-	}
-	.navbar-secondary-electronics{
-
-	}
-	.navbar-secondary-garden{
-
-	}
-	.navbar-secondary-toys{
-
-	}
-	.navbar-secondary-clothes{
-
-	}
 }

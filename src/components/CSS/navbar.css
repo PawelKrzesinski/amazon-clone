@@ -1,55 +1,93 @@
 
-
-
-
 @media only screen and (min-width: 300px){
 	.navbar{
+		position: sticky;
+		top: 0;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-evenly;
 		background-color: #0F1111;
 		color: white;
+		width: 100%;
+		height: 40px;
 	}
 	.navbar button{
 		color: white;
+		outline: none;
+		cursor: pointer;
+		border-radius: 5%/2px;
+	}
+
+	.navbar button:hover:not(.navbar-cart, .navbar-search){
+		border: 1px solid white;
 	}
 	.navbar-home{
 		background-color: #0F1111;
-		border: none;
-		padding: 10px 15px;
+		border: 1px solid transparent;
+		padding: 10px 5px;
 		font-weight: 700;
+		font-size: 10px;
 	}
 	.search-box-container{
 		display: flex;
-		flex-direction: row;
+	}
+	.navbar select{
+		width: 15vw;
+		border: none;
+		border-radius: 10% 0 0 10%/3px 0 0 3px;	
+		background-color: rgb(230, 230, 230);
+	}
+	.navbar select:hover{
+		background-color: rgb(210, 210, 210);
+	}
+	.navbar input[type="text"],
+	.navbar select:focus{
+		outline: none;
 	}
 	.navbar input[type="text"]{
-		width: 40%;
+		width: 25vw;
+		border: none;
+		padding-left: 5px;
 	}
 	.navbar-search{
 		width: 30px;
 		height: 30px;
+		background-color: #FF9900;
+		border: none;
+		border-radius: 0 10% 10% 0/0 5px 5px 0;
 	}
-	.fa-search{
-		font-size: 25px;
-	}
+	.navbar-address,
+	.navbar-returnsAndOrders,
+	.navbar-prime,
 	.navbar-signIn{
 		display: none;
 	}
-	.navbar-returnsAndOrders{
-		display: none;
-	}
-	.navbar-prime{
-		display: none;
+	.fa-search{
+		font-size: 25px;
+		color: #0F1111;
 	}
 	.navbar-cart{
-		width: 30px;
-		height: 30px;
+		width: 35px;
+		height: 35px;
+		background-color: #FF9900;
+		border: none;
+		border-radius: 15%/5px;
+		margin: 0 5px;
 	}
-	.fa-bars .fa-shopping-basket{
-		font-size: 30px;
-		
+	.navbar-cart p {
+		transform: translateY(-135%);
+		color: #0F1111;
+		font-weight: 900 !important;
+	}
+	.fa-shopping-basket{
+		transform: translateY(50%);
+		font-size: 20px;
+	}
+	.fa-bars:before{
+		font-size: 25px;
+		cursor: pointer;		
+		z-index: 1000;
 	}
 }
 
