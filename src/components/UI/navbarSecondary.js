@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
 import '../CSS/navbarSecondary.css'
 import { ShowMenuContext } from './ShowMenuProvider'
+import { Button, ButtonGroup } from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const NavbarSecondary = () => {
 	const state = useContext(ShowMenuContext)
@@ -13,35 +17,80 @@ const NavbarSecondary = () => {
 		)
 	};
 
-	const categoriesSpecified = [
-		["Desktop Pc", "Consoles", "TV"],
-		["Garden Tools", "Seeds", "Lawn Mowers"],
-		["Dolls", "Toy Cars", "Puzzles"],
-		["T-shirts", "Jeans", "Socks"]
-	]
+	const theme = createMuiTheme({
+		palette: {
+			  primary: {
+				main: "#323232"
+			}
+		}
+	});
+	
 
-	const renderButtons = () => {
-		
-	}
 	return (
-		<div>
-			<div className="navbar-secondary" style={showMenu}>
-				<button className="navbar-secondary-bestsellers"><i className="fas fa-arrow-left"></i>Best Sellers</button>
-				<button className="navbar-secondary-electronics"><i className="fas fa-arrow-left"></i>Electronics</button>
-				<button className="navbar-secondary-garden"><i className="fas fa-arrow-left"></i>Garden</button>
-				<button className="navbar-secondary-toys"><i className="fas fa-arrow-left"></i>Toys</button>
-				<button className="navbar-secondary-clothes"><i className="fas fa-arrow-left"></i>Clothes</button>
-			<p onClick={menuShow}>X</p>
+		<ThemeProvider theme={theme}>
+			<div className="navbar-secondary">
+				<div className="navbar-secondary-part1" style={showMenu}>
+					<div className="navbar-secondary-user">
+						<p onClick={menuShow}>X</p>
+						<h3>Hello, User!</h3>
+						<AccountCircleIcon></AccountCircleIcon>
+					</div>
+					<Button color="primary" fullWidth={true} variant="text" className="navbar-secondary-bestsellers">Best Sellers</Button>
+					<h4>Shop By Department</h4>
+					<ButtonGroup color="primary" orientation="vertical" fullWidth={true} variant="text">	
+						<Button>
+							<i className="fas fa-arrow-left"></i>
+							Electronics
+						</Button>
+						<Button>
+							<i className="fas fa-arrow-left"></i>
+							Garden
+						</Button>
+						<Button>
+							<i className="fas fa-arrow-left"></i>
+							Toys
+						</Button>
+						<Button>
+							<i className="fas fa-arrow-left"></i>
+							Clothes
+						</Button>
+					</ButtonGroup>
+				
+				</div>
+				<div className="navbar-secondary-part2">
+					<h5>Back to main menu <i className="fas fa-arrow-right"></i></h5>
+					<h4>Shop By Department</h4>
+					<div className="navbar-secondary-electronics">
+						<ButtonGroup color="primary" orientation="vertical" fullWidth={true} variant="text">
+							<Button>Desktop Pc</Button>
+							<Button>Consoles</Button>
+							<Button>TV</Button>
+						</ButtonGroup>
+					</div>
+					<div className="navbar-secondary-garden">
+						<ButtonGroup color="primary" orientation="vertical" fullWidth={true} variant="text">
+							<Button>Garden Tools</Button>
+							<Button>Seeds</Button>
+							<Button>Lawn Mowers</Button>
+						</ButtonGroup>
+					</div>
+					<div className="navbar-secondary-toys">
+						<ButtonGroup color="primary" orientation="vertical" fullWidth={true} variant="text">
+							<Button>Dolls</Button>
+							<Button>Toy Cars</Button>
+							<Button>Puzzles</Button>
+						</ButtonGroup>
+					</div>
+					<div className="navbar-secondary-clothes">
+						<ButtonGroup color="primary" orientation="vertical" fullWidth={true} variant="text">
+							<Button>T-shirts</Button>
+							<Button>Jeans</Button>
+							<Button>Socks</Button>
+						</ButtonGroup>
+					</div>
+				</div>
 			</div>
-			<div className="navbar-secondary-part2">
-				{categoriesSpecified[0].forEach(element => {
-					return (
-						<button>{element}</button>
-					)	
-				})}
-			</div>
-		</div>
-		
+		</ThemeProvider>
 	)
 }
 

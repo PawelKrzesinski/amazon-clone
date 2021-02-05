@@ -4,17 +4,14 @@ import Navbar from "./components/UI/Navbar";
 import SectionBanner from "./components/UI/SectionBanner";
 import NavbarSecondary from "./components/UI/NavbarSecondary";
 import { ShowMenuContextProvider } from './components/UI/ShowMenuProvider';
-function App() {
 
+function App() {
   return (
     <ShowMenuContextProvider>
     <div className="app">
 		<Navbar />
 		<NavbarSecondary />
-
-		<div>
-			<SectionBanner />
-		</div>
+		<SectionBanner />
     </div>
     </ShowMenuContextProvider>
   );

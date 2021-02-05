@@ -1,16 +1,35 @@
 import { React, useContext }from 'react';
 import '../CSS/navbar.css';
-import { ShowMenuContext } from './ShowMenuProvider'
+import { ShowMenuContext } from './ShowMenuProvider';
+import { Button, ButtonGroup } from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 
 
-
-
+const theme = createMuiTheme({
+	palette: {
+	  	primary: {
+			main: "#e6e6e6"
+		}
+	}
+});
+  
 const Navbar = (props) => {
 	const state = useContext(ShowMenuContext)
+	const menuShow = () => {
+		state.showMenu(
+			state.sideMenu.transform
+		)
+	};
 	return (
+		<ThemeProvider theme={theme}>
 		<div className="navbar">
-			<button className="navbar-home">AMAZON</button>
-			<button className="navbar-address">Choose Your Address</button>
+			<ButtonGroup color="primary">
+				<Button className="navbar-home" variant="outlined" href="../public/index.html">AMAZON</Button>
+				<Button className="navbar-address">Choose Your Address</Button>
+				<Button className="navbar-returnsAndOrders">Returns and orders</Button>
+				<Button className="navbar-prime">Your Prime</Button>
+			</ButtonGroup>
 			<div className="search-box-container">
 				<select name="products">
 					<option value="electronics">Electronics</option>
@@ -23,19 +42,14 @@ const Navbar = (props) => {
 					<i className="fas fa-search"></i>
 				</button>
 			</div>
-			<button className="navbar-signIn">Sign In</button>
-			<button className="navbar-returnsAndOrders">Returns and orders</button>
-			<button className="navbar-prime">Your Prime</button>
 			<button className="navbar-cart">
 				<i className="fas fa-shopping-basket"></i>
 				<p className="cart-count">0</p>
 			</button>
-			<i className="fas fa-bars" onClick={() => {
-				state.showMenu(
-					state.sideMenu.transform
-				)
-			}}></i>
+			<Button className="navbar-signIn">Sign In</Button>
+			<i className="fas fa-bars" onClick={menuShow}></i>
 		</div>
+		</ThemeProvider>
 	)
 }
 

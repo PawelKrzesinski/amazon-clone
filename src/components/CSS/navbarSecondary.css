@@ -19,48 +19,59 @@
 
 @media only screen and (min-width: 300px){
 	.navbar-secondary{
+		position: fixed;
+		top: 40px;
+		right: 0;
+		overflow: hidden;
+		width: 100vw;
+		height: 100vh;
+	}
+	.navbar-secondary-part1{
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		background-color: rgb(240, 240, 240);
-		width: 40%;
+		width: 100%;
 		height: 100vh;
-		position: fixed;
-		top: 40px;
-		right: 0;
 		transition: all 0.3s ease-in-out;
 	}
-	.navbar-secondary button{
-		border: none;
-		background-color: rgb(240, 240, 240);
-		margin: 2px 0;
-		height: 30px;
+	.navbar-secondary-part1 h4{
+		margin: 10px;
+	}
+	.navbar-secondary-user{
+		position: fixed;
 		width: 100%;
-		cursor: pointer;
-		color: dimgray;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		background-color: #232f3e;
+		color: #e6e6e6;
+		margin-bottom: 20px;
+		height: 40px;
 	}
-	.navbar-secondary button:hover{
-		color: black;
-		background-color: gainsboro;
+	.navbar-secondary-user h3,
+	.navbar-secondary-user svg{
+		margin: 0 10px;
+		font-weight: 400;
 	}
-	.navbar-secondary button:first-of-type{
-		margin-top: 50px;
+	.navbar-secondary-bestsellers{
+		margin-top: 40px !important;
+		font-size: 25px !important;
 	}
-	.navbar-secondary button:focus{
-		background-color: lightgray;
-		outline: none;
-		color: black;
-	}
-	.navbar-secondary p{
+	.navbar-secondary-part1 p{
 		font-size: 30px;
-		position: absolute;
-		left: -40px;
+		position: fixed;
+		top: 0px;
+		left: 0px;
 		width: 40px;
 		height: 40px;
 		text-align: center;
 		cursor: pointer;
+		color: white;
+		font-weight: 100;
 	}
-	.navbar-secondary p:hover{
+	.navbar-secondary-part1 p:hover{
 		animation: wiggle 0.3s ease-in-out;
 	}
 	.fa-arrow-left{
@@ -69,22 +80,63 @@
 		color: gray;
 		transform: translate(100%, 10%) rotateZ(180deg);
 	}
-	.navbar-secondary button:hover > .fa-arrow-left{
+	.navbar-secondary-part1 span:hover > .fa-arrow-left{
 		color: black;
 		transform:translate(100%, 10%) rotateZ(0deg);
 		transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
-	.navbar-secondary button:focus > .fa-arrow-left{
-		color: black;
-		transform: translate(100%, 10%) rotateZ(0deg);
-	}
 	.navbar-secondary-part2{
-		background-color: red;
-		width: 40%;
-		height: 100vh;
-		position: fixed;
-		top: 40px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: absolute;
+		top: 0;
 		right: 0;
+		transition: all 0.3s ease-in-out;
+		background-color: rgb(240, 240, 240);
+		width: 100%;
+		height: 100vh;
+		transform: translateX(-100%);
+	}
+	.navbar-secondary-part2 h4{
+		margin-top: 50px;
 	}
 
+	.navbar-secondary-part2 h5{
+		position: absolute;
+		top: 20px;
+		right: 5px;
+		font-weight: 400 !important;
+	}
+	.navbar-secondary-part2 .MuiButtonGroup-root{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 100px;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.navbar-secondary-garden{
+		position: absolute;
+		top: 100px;
+		display: none;
+		flex-direction: column;
+
+	}
+	.navbar-secondary-toys{
+		position: absolute;
+		top: 100px;
+		display: none;
+		flex-direction: column;
+
+	}
+	.navbar-secondary-clothes{
+		position: absolute;
+		top: 100px;
+		display: none;
+		flex-direction: column;
+
+	}
 }

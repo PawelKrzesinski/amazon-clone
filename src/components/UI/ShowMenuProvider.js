@@ -15,10 +15,13 @@ export const ShowMenuContextProvider = props => {
             transform: 'translateX(0%)'
         },
         hidden: {
-            transform: 'translateX(500%)'
+            transform: 'translateX(100%)'
         }
     }
 
+	const departmentPicked = {
+		
+	}
 
     const showMenu = transform => {
         setState({...state, sideMenu: transform === 'translateX(0%)' 
