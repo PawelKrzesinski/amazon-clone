@@ -85,11 +85,3 @@ export const TranslateXContextProvider = props => {
 }
 
 
-// Return state to initial function
-
-// const initialState = () => {
-// 	setState({
-// 		...state,
-
-// 	})
-// }

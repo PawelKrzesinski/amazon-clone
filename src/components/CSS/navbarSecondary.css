@@ -20,11 +20,16 @@
 @media only screen and (min-width: 300px){
 	.navbar-secondary{
 		position: fixed;
-		top: 40px;
+		top: 0;
+		left: 0;
+		bottom: 0;
 		right: 0;
 		width: 100vw;
 		height: 100vh;
 		transition: all 0.3s ease-in-out;
+		z-index: 10;
+	}
+	.navbar-secondary-menu{
 		z-index: 1000;
 	}
 	.navbar-secondary-part1{
@@ -37,6 +42,7 @@
 		transition: all 0.3s ease-in-out;
 		position: absolute;
 		right: 0;
+		z-index: 1000
 	}
 	.navbar-secondary-part1 h4{
 		margin: 10px;
@@ -58,7 +64,7 @@
 		margin: 0 10px;
 		font-weight: 400;
 	}
-	
+
 	.navbar-secondary-bestsellers{
 		margin-top: 60px !important;
 		font-size: 25px !important;
@@ -103,6 +109,7 @@
 		width: 100%;
 		height: 100vh;
 		transform: translateX(-100%);
+		z-index: 1000
 	}
 	.navbar-secondary-part2 h4{
 		margin-top: 50px;
@@ -117,46 +124,27 @@
 	.navbar-secondary-part2 .MuiButtonGroup-root{
 		width: 100%;
 		height: 100%;
-		position: absolute;
-		top: 100px;
+
 		left: 0;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
-	.navbar-secondary-garden{
-		position: absolute;
-		top: 100px;
-		display: none;
-		flex-direction: column;
 
-	}
-	.navbar-secondary-toys{
-		position: absolute;
-		top: 100px;
-		display: none;
-		flex-direction: column;
-
-	}
-	.navbar-secondary-clothes{
-		position: absolute;
-		top: 100px;
-		display: none;
-		flex-direction: column;
-
-	}
 }
 
 @media only screen and (min-width: 1024px){
+	.navbar-secondary{
+		width: 60% !important;
+		transition: all 0.3s ease-in-out;
+	}
 	.navbar-secondary-menu{
-		width: 40vw !important;
+		width: 40% !important;
 		overflow: hidden;
 		position: fixed;
-		top: 40px;
+		top: 0;
 		right: 0;
-		width: 100vw;
 		height: 100vh;
-		
 	}
 	.navbar-secondary-slider{
 		transition: all 0.3s ease-in-out;
