@@ -22,32 +22,35 @@
 		position: fixed;
 		top: 40px;
 		right: 0;
-		overflow: hidden;
 		width: 100vw;
 		height: 100vh;
+		transition: all 0.3s ease-in-out;
+		z-index: 1000;
 	}
 	.navbar-secondary-part1{
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		background-color: rgb(240, 240, 240);
-		width: 100%;
+		width: 100vw;
 		height: 100vh;
 		transition: all 0.3s ease-in-out;
+		position: absolute;
+		right: 0;
 	}
 	.navbar-secondary-part1 h4{
 		margin: 10px;
 	}
 	.navbar-secondary-user{
 		position: fixed;
-		width: 100%;
+		top: 0px;
+		width: 40vw;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
 		background-color: #232f3e;
 		color: #e6e6e6;
-		margin-bottom: 20px;
 		height: 40px;
 	}
 	.navbar-secondary-user h3,
@@ -55,13 +58,16 @@
 		margin: 0 10px;
 		font-weight: 400;
 	}
+	
 	.navbar-secondary-bestsellers{
-		margin-top: 40px !important;
+		margin-top: 60px !important;
 		font-size: 25px !important;
+		border-bottom: 1px solid dimgray !important;
+		font-size: 0.875rem !important;
 	}
-	.navbar-secondary-part1 p{
+	.navbar-secondary-close-btn{
 		font-size: 30px;
-		position: fixed;
+		position: absolute;
 		top: 0px;
 		left: 0px;
 		width: 40px;
@@ -103,9 +109,9 @@
 	}
 
 	.navbar-secondary-part2 h5{
-		position: absolute;
-		top: 20px;
-		right: 5px;
+		position: relative;
+		top: 40px;
+		transform: translateX(75%);
 		font-weight: 400 !important;
 	}
 	.navbar-secondary-part2 .MuiButtonGroup-root{
@@ -138,5 +144,28 @@
 		display: none;
 		flex-direction: column;
 
+	}
+}
+
+@media only screen and (min-width: 1024px){
+	.navbar-secondary-menu{
+		width: 40vw !important;
+		overflow: hidden;
+		position: fixed;
+		top: 40px;
+		right: 0;
+		width: 100vw;
+		height: 100vh;
+		
+	}
+	.navbar-secondary-slider{
+		transition: all 0.3s ease-in-out;
+		width: 100%;
+	}
+	.navbar-secondary-part1{
+		width: 100%;
+	}
+	.navbar-secondary-part2{
+		width: 100%;
 	}
 }

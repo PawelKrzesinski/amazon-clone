@@ -3,17 +3,20 @@ import { Router, Route, Switch } from "react-router";
 import Navbar from "./components/UI/Navbar";
 import SectionBanner from "./components/UI/SectionBanner";
 import NavbarSecondary from "./components/UI/NavbarSecondary";
-import { ShowMenuContextProvider } from './components/UI/ShowMenuProvider';
+import { DimBGContextProvider, TranslateXContextProvider } from './components/UI/NavFunctionality';
+
 
 function App() {
   return (
-    <ShowMenuContextProvider>
-    <div className="app">
-		<Navbar />
-		<NavbarSecondary />
-		<SectionBanner />
-    </div>
-    </ShowMenuContextProvider>
+		<DimBGContextProvider>
+			<TranslateXContextProvider>
+			<div className="app">
+				<Navbar />
+				<NavbarSecondary />
+				<SectionBanner />
+			</div>
+			</TranslateXContextProvider>
+		</DimBGContextProvider>
   );
 }
 
