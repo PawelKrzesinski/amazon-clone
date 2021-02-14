@@ -1,22 +1,20 @@
 import './App.css';
 import { Router, Route, Switch } from "react-router";
-import Navbar from "./components/UI/Navbar";
-import SectionBanner from "./components/UI/SectionBanner";
-import NavbarSecondary from "./components/UI/NavbarSecondary";
-import { DimBGContextProvider, TranslateXContextProvider } from './components/UI/NavFunctionality';
+import Navbar from "./Components/UI/Navbar";
+import SectionBanner from "./Components/UI/SectionBanner";
+import { TranslateXContextProvider } from './Components/UI/NavFunctionality';
 
 
 function App() {
-  return (
-		<DimBGContextProvider>
+	return (
+	  	// <Router>
 			<TranslateXContextProvider>
-			<div className="app">
-				<Navbar />
-				<NavbarSecondary />
-				<SectionBanner />
-			</div>
+				<div className="app">
+					<Navbar />
+					<SectionBanner />
+				</div>
 			</TranslateXContextProvider>
-		</DimBGContextProvider>
+		 //</Router>
   );
 }
 

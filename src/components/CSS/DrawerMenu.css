@@ -1,0 +1,79 @@
+
+
+
+
+@media only screen and (min-width: 300px){
+	.MuiDrawer-root{
+		width: 100%;
+	}
+	.drawer-menu-slider{
+		width: 100%;
+	}
+	.drawer-menu-part-1{
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		height: 100vh;
+		position: absolute;
+		right: 0;
+	}
+	.drawer-menu-user-account{
+		position: fixed;
+		top: 0px;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		background-color: #232f3e;
+		color: #e6e6e6;
+		height: 40px;
+	}
+	.drawer-menu-user-account h5{
+		font-weight: 400;
+	}
+	.MuiList-root{
+		margin: 50px 0 !important;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		text-align: center;
+	}
+	.fa-arrow-left{
+		position: fixed;
+		left: 15px;
+	}
+	.MuiList-root a{
+		margin: 10px 0;
+		border-bottom: 1px solid #232f3e;
+	}
+	.drawer-menu-part-2{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100vh;
+		transform: translateX(-100%);
+	}
+	.drawer-menu-close-btn{
+		font-size: 30px;
+		width: 40px;
+		height: 40px;
+		text-align: center;
+		cursor: pointer;
+		color: white;
+		font-weight: 100;
+	}
+}
+
+@media only screen and (min-width: 768px){
+	.MuiDrawer-root{
+		width: 50%;
+	}
+}
