@@ -17,19 +17,15 @@ export const TranslateXContextProvider = props => {
             transform: 'translateX(100%)'
         }
     }
-
-
     const translateX = transform => {
         setState({...state, navMenu: transform === 'translateX(100%)' 
         ? navMenu.notTransformed 
         : navMenu.transformed})
     }
-
     const initState = {
         navMenu: navMenu.notTransformed,
         translateX: translateX
     }
-
     const [state, setState] = useState(initState);
 
     return (
@@ -38,5 +34,3 @@ export const TranslateXContextProvider = props => {
         </TranslatedContext.Provider>
     )
 }
-
-

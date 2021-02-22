@@ -6,11 +6,12 @@
 }
 html{
 	scroll-behavior: smooth;
+	font-size: 100%;
 }
 body{
 	width: 100%;
 	min-height: 100vh;
-	letter-spacing: 0.1rem;
+	letter-spacing: 0.02rem;
 }
 #root{
 	min-height: 100vh;

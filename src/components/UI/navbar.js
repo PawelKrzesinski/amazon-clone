@@ -22,7 +22,7 @@ const categories = [
 	},
 	{
 		"name": "Garden",
-		"subCat": ["Garden Tools","Seeds","Lawn Mowers"]
+		"subCat": ["Garden Tools","Barbecues","Lawn Mowers"]
 	},
 	{
 		"name": "Toys",
@@ -34,6 +34,10 @@ const categories = [
 	}			
 ]
 const Navbar = () => {
+	
+
+
+
 	const theme = createMuiTheme({
 		palette: {
 			  textPrimary: {
@@ -57,46 +61,57 @@ const Navbar = () => {
 			<div className="navbar">
 				<List>	
 					<Link 
-					style={{color: textColor}}
-					
-					 to="/" className="navbar-home">AMASOON</Link>	
+						style={{color: textColor}}
+						to="/" 
+						className="navbar-home"
+						>AMASOON
+					</Link>	
 					<Link 
-					style={{color: textColor}}
-					 to="" className="navbar-address">Choose Your Address</Link>
+						style={{color: textColor}}
+						to="/address" 
+						className="navbar-address"
+						>Your Address
+					</Link>
+					<div className="search-box-container">
+						<select name="products">
+							<option value="All Departments">All Departments</option>
+							{
+								categories.map(category => {
+									return (
+										<option value={ category.name } key={ uuid() }>{ category.name }</option>
+									)
+								})
+							}
+						</select>
+						<input type="text"></input>
+						<button type="submit" className="navbar-search" value=" ">
+							<i className="fas fa-search"></i>
+						</button>
+					</div>
 					<Link 
-					style={{color: textColor}}
-					 to="" className="navbar-returnsAndOrders">Returns and orders</Link>
-					<Link 
-					style={{color: textColor}}
-					 to="" className="navbar-prime">Your Prime</Link>
-				</List>
-				<div className="search-box-container">
-					<select name="products">
-						<option value="All Departments">All Departments</option>
-						{
-							categories.map(category => {
-								return (
-									<option value={ category.name } key={ uuid() }>{ category.name }</option>
-								)
-							})
-						}
-					</select>
-					<input type="text"></input>
-					<button type="submit" className="navbar-search" value=" ">
-						<i className="fas fa-search"></i>
+							style={{color: textColor}}
+							to="/orders" 
+							className="navbar-returnsAndOrders"
+							>Returns & orders
+						</Link>
+					<button className="navbar-cart">
+						<i className="fas fa-shopping-basket"></i>
+						<p className="cart-count">0</p>
 					</button>
-				</div>
-				<button className="navbar-cart">
-					<i className="fas fa-shopping-basket"></i>
-					<p className="cart-count">0</p>
-				</button>
-				<Button className="navbar-signIn">Sign In</Button>
-				<i className="fas fa-bars" onClick={toggleDrawer}></i>
+					<Link 
+					 style={{color: textColor}}
+					 to="/prime" 
+					 className="navbar-prime"
+					 >Prime</Link>
+					<Button className="navbar-signIn">Sign In</Button>
+					<i className="fas fa-bars" onClick={toggleDrawer}></i>
+				</List>
 			</div>
 			<DrawerMenu
-			toggle={ toggleDrawer }
+			toggleDrawer={ toggleDrawer }
 			state={state}
-			setState={setState} />
+			setState={setState}
+			subCat={state.subCat} />
 		</ThemeProvider>
 	</Router>
 	)

@@ -2,13 +2,16 @@ import { React, useContext, useState }from 'react';
 import { TranslatedContext } from './NavFunctionality';
 import { Drawer, List } from '@material-ui/core';
 import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
 import { 
 	BrowserRouter as Router, 
 	Route, 
 	Switch, 
 	Link } from "react-router-dom";
 import {v4 as uuid} from 'uuid';
+import DrawerMenuUser from './DrawerMenuUser'
+import BackToMainMenu from './BackToMainMenu'
+
 
 import '../CSS/DrawerMenu.css'
 
@@ -19,7 +22,7 @@ const categories = [
 	},
 	{
 		"name": "Garden",
-		"subCat": ["Garden Tools","Seeds","Lawn Mowers"]
+		"subCat": ["Garden Tools","Barbecues","Lawn Mowers"]
 	},
 	{
 		"name": "Toys",
@@ -51,12 +54,6 @@ export default function DrawerMenu(props){
 
 	//Navigate through drawer menu functions
 	const menuTranslatedInXAxis = useContext(TranslatedContext)
-
-	const navigate = (e) => {
-		translate();
-		changeCategory(e);
-	}
-
 	const moveTheMenu = {
 		transform: menuTranslatedInXAxis.navMenu.transform
 	};
@@ -68,13 +65,17 @@ export default function DrawerMenu(props){
 
 	const changeCategory = (e) => {
 		categories.forEach(category => {
-			if(e.currentTarget.value === category.name){
+			if(e.currentTarget.name === category.name){
 				props.setState({
-					...props.state, category: e.currentTarget.value,
+					...props.state, category: e.currentTarget.name,
 					subCat: category.subCat
 				})
 			}
 		})
+	}
+	const navigate = (e) => {
+		translate();
+		changeCategory(e);
 	}
 
 	return(
@@ -87,25 +88,20 @@ export default function DrawerMenu(props){
 			>
 				<div className="drawer-menu-slider" style={moveTheMenu}>
 					<div className="drawer-menu-part-1" >
-						<div className="drawer-menu-user-account">
-							<p onClick={ props.toggle } className="drawer-menu-close-btn">X</p>
-							<h5>Hello, User!</h5>
-							<AccountCircleIcon ></AccountCircleIcon>
-						</div>
-						<List>
-							
-							<Link>User Account</Link>
-							<Link>Your Orders</Link>
-						</List>
+						<DrawerMenuUser 
+							toggle={props.toggleDrawer} 
+							translate={translate}
+						/>
 						<h4>Shop By Department</h4>
 						<List>
-							<Link>Best Sellers</Link>
+							<Link to="/bestsellers">Best Sellers</Link>
 							{categories.map(category => {	
 								return(
 									<Link 
+									to={`/${category.name}`}
 									onClick={ navigate } 
 									key={ uuid() } 
-									value={ category.name }>
+									name={ category.name }>
 									<i className="fas fa-arrow-left"></i>
 									{ category.name }
 									</Link>
@@ -114,19 +110,23 @@ export default function DrawerMenu(props){
 						</List>
 						</div>
 						<div className="drawer-menu-part-2">
-							<div className="drawer-menu-user-account">
-								<p onClick={ props.toggle } className="drawer-menu-close-btn">X</p>
-								<h3>Hello, User!</h3>
-								<AccountCircleIcon></AccountCircleIcon>
-							</div>
-							<h5 onClick={ navigate }>Back to main menu <i className="fas fa-arrow-right"></i></h5>
-							<h4>Shop By Department</h4>
+							<DrawerMenuUser 
+								toggle={props.toggleDrawer} 
+								translate={translate}
+							/>
+							<h3>{props.state ? props.state.category : " "}</h3>
 							<List>
 								{props.state.subCat ? props.state.subCat.map(cat => {
-									return(<Link	key={ uuid() }>{ cat }</Link>)
+									console.log(cat)
+									return(<Link
+										to={`/${cat}`}	
+										key={ uuid() }
+										>{ cat }
+										</Link>)
 									}) : ""
 								}
 							</List>
+							<BackToMainMenu navigate={navigate} />
 						</div>
 				</div>		
 			</Drawer>
